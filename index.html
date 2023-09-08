@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="projectsStyle.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="todoContainer">
+        <div class="todo">
+            <h3 class="title">To Do List</h3>
+            <input type="text" name="Do" id="InputTask">
+            <input type="button" value="Do" id="doTask">
+            <ul id="list"></ul>
+        </div>
+    </div>
+
+    <script >
+        let InputTask = document.getElementById('InputTask');
+        let btn = document.getElementById('doTask')
+        let List = document.getElementById('list')
+        let  arr = [];
+
+        btn.addEventListener('click', () =>{
+            let word = InputTask.value;
+            if(word !== ""){
+                arr.push(word);
+                let li = document.createElement('li');
+                li.textContent = word
+                word.textContent = ""
+                let dlete = document.createElement('button');
+                dlete.classList.add('task')
+                dlete.textContent = 'Done';
+                dlete.addEventListener('click', () =>{
+                    li.remove()
+                })
+                li.appendChild(dlete)
+                List.appendChild(li)
+              
+                return li
+            }
+        })
+        
+    </script>
+</body>
+</html>
